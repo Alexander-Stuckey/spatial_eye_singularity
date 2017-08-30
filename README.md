@@ -1,1 +1,1 @@
-# spatial_eye_singularity
+# A Singularity container for the Spatial Eye R Shiny app.

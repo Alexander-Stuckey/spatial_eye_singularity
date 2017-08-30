@@ -1,0 +1,35 @@
+Bootstrap: docker
+From: ubuntu:16.04
+IncludeCmd: yes
+
+%labels
+Maintainer alexander.stuckey@scilifelab.se
+Version 1.0
+
+%environment
+	SHELL=/bin/bash
+	export SHELL
+
+%post
+
+	#------------
+	#Update tools
+	#------------
+
+	apt-get -y update
+	apt-get -y upgrade
+	apt-get -y install wget
+	
+	#-------------------
+	#Add CRAN to sources
+	#-------------------
+	
+	echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial" | tee -a /etc/apt/sources.list
+	gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+	gpg -a --export E084DAB9 | apt-key add -
+
+	#---------
+	#Install R
+	#---------
+	
+	apt-get -y install r-base r-base-dev
