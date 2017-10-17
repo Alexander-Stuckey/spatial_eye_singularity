@@ -29,8 +29,6 @@ Version 1.0
 	apt-get -y upgrade
 	apt-get -y install wget git libcurl4-openssl-dev libssl-dev libssh2-1-dev libxml2 libxml2-dev
 	apt-get -y install build-essential fort77 xorg-dev liblzma-dev libblas-dev gfortran gcc-multilib gobjc++ aptitude libreadline-dev libcairo2-dev libbz2-dev
-#	rm /bin/sh
-#	ln -s /bin/bash /bin/sh
 	
 	#-------------------
 	#Add CRAN to sources
@@ -43,7 +41,6 @@ Version 1.0
 	#Install R
 	#---------
 	
-#	apt-get -y install r-base r-base-dev
 	wget https://cran.r-project.org/src/base/R-3/R-3.4.0.tar.gz
 	tar -zxvf R-3.4.0.tar.gz
 	rm R-3.4.0.tar.gz
@@ -58,10 +55,6 @@ Version 1.0
 
 	cd /home
 	git clone https://github.com/jbergenstrahle/SpatialEye.git
-	#wget https://cran.r-project.org/src/contrib/devtools_1.13.3.tar.gz
-	#R CMD INSTALL devtools_1.13.3.tar.gz
-	#R CMD "install_deps(\"SpatialEye\")"
-	#R CMD INSTALL SpatialEye	
 	R --vanilla <<EOF
 	install.packages("devtools", repos="http://cran.us.r-project.org")
 	install.packages(c("igraph", "leaflet.extras"), repos="http://cran.us.r-project.org")
